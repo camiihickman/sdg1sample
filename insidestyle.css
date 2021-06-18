@@ -192,7 +192,7 @@ justify-content: center;
   position: fixed;
   left:0;
   top: 0;
-  width: 20vw;
+  width: 25vw;
   overflow-y: scroll;
   margin-top: 15vh;
   padding: 1vw;
@@ -201,7 +201,7 @@ justify-content: center;
 #goalmain{
   margin-top: 15vh;
   padding-top: 1vh;
-  margin-left: 20vw;
+  margin-left: 25vw;
   position: static;
 }
 #quickfacts{
@@ -259,19 +259,31 @@ align-self: flex-start;
 
 .target{
   font-size: 1rem;
+  text-indent: -1.5rem;
   font-weight: 500;
   color: #196FA1;
   line-height: 1.25em;
   display: block;
-  margin-bottom: 1rem;
+  padding: .75rem 0;
+  margin: 0 1.5rem;
+  border-bottom: 1px solid #cccccc;
+  transition-duration: .05s;
+  transition-delay: .25s;
 }
-.target:after{
-  content: " ⊕";
-  font-weight: 400;
+.toggle:checked + .target{
+  border-bottom: 1px  solid white;
+  transition-duration: .05s;
 }
-.toggle:checked + .target:after{
-  content: " ⊖";
+.target:before{
+  content: "⊕ ";
   font-weight: 400;
+  font-size: 1.2rem;
+  transition-duration: .05s;
+}
+.toggle:checked + .target:before{
+  content: "⊖ ";
+  font-weight: 400;
+  transition-duration: .05s;
 }
 .toggle{
 position: fixed;
@@ -281,9 +293,10 @@ left: -200px;
   max-height: 0;
   overflow: hidden;
   transition-duration:.25s;
+  transition-delay: .25s;
 }
 .indicatorlist{
-  margin: 0 0 1rem 0;
+  margin: -.5rem 0 1rem 1.5rem;
   padding-left: 1rem;
   border-left: 1px solid #196FA1;
 }

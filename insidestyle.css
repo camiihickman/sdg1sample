@@ -15,6 +15,10 @@
   right: 0;
   width: 40vw;
 }
+.embed-container{
+  z-index: 2;
+  position: relative;
+}
 a{
   text-decoration: none;
   color:#196FA1;
@@ -68,12 +72,11 @@ a{
   text-decoration: none;
   color: #707070;
 }
-p{
-  font-size: 1rem;
+p, ul{
+  font-size: 1.15rem;
   color: #707070;
-  line-height: 1.25em;
-  margin-top: 0;
-  margin-bottom: .5em;
+  line-height: 1.4em;
+  margin-top: .5em;
 }
 h1{
   font-size: 3rem;
@@ -92,97 +95,79 @@ h1 i{
 h2{
   font-size: 1.8rem;
   text-transform:uppercase;
-  margin: 0;
   color: #707070;
   position: relative;
+  margin-bottom: .5em;
 }
 
 h3{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-style: italic;
-  color: white;
+  color:#707070;
   line-height: 1.05em;
   margin-top: 0.5em;
   margin-bottom: 0;
   font-weight: 400;
 }
-.goaltext{
-  margin: 1.5vw;
-  visibility: hidden;
-}
 
-#goals{
-  display: grid;
-  max-width: 100vw;
-  padding: 0;
-  margin: 5vw;
-  grid-template-columns: 14vw 14vw 14vw 14vw 14vw 14vw;
-  grid-gap: .8vw;
-}
-.goal{
-  width: 14vw;
-  height: 14vw;
-  transition-duration:.25s;
-  background-size: 100%;
-  background-attachment: local;
-  background-repeat: no-repeat;
-}
-
-.goal img{
-  height: 14vw;
-  width: 14vw;
-}
-
-/*hover effects: general*/
-.goal:hover .goaltext{
-  visibility: visible;
-  transition-delay: .25s;
-}
-.goal:hover img{
-  visibility: hidden;
-  height: 0;
-  width: 0;
-}
-.goal:hover{
-  width:28.8vw;
-  height: 28.8vw;
-  grid-column: span 2;
-  grid-row: span 2;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  transition-duration: .25s;
-}
-
-#goal6:hover, #goal12:hover{
-  z-index: 1;
-  grid-row: auto;
-  grid-column: auto;
-  margin-left: -14.8vw;
-  margin-bottom: -14.8vw;
-}
-#goal13:hover, #goal14:hover, #goal15:hover, #goal16:hover, #goal17:hover{
-  z-index: 1;
-  margin-top: -14.8vw;
-}
-
-#copyright{
-background-color: #707070;
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-}
-#copyright img{
-  width: 2vw;
-}
-#copyright p{
-  margin-left: 2vw;
-  text-align: center;
-}
 /*goal colors*/
-#goal1{
+.goal1{
   background-color: #e5243b;
 }
+.goal2{
+  background-color: #cc9935;
+}
+.goal3{
+  background-color: #4c9F38;
+}
+.goal4{
+  background-color: #C5192D;
+}
+.goal5{
+  background-color: #FF3A21;
+}
+.goal6{
+  /*background-color: #26BDE2;*/
+  background-color: #23abcc;
+}
+.goal7{
+/*  background-color: #FCC30B;*/
+  background-color: #ccab08;
+}
+.goal8{
+  background-color: #A21942;
+}
+.goal9{
+  background-color: #FD6925;
+}
+.goal10{
+  background-color: #DD1367;
+}
+.goal11{
+  /*background-color: #FD9D24;*/
+  background-color: #d9851e;
+}
+.goal12{
+/*  background-color: #BF8B2E;*/
+  background-color: #b3812b;
+}
+.goal13{
+  background-color: #3F7E44;
+}
+.goal14{
+  background-color: #0A97D9;
+}
+.goal15{
+  /*background-color: #56C02B;*/
+  background-color: #4fb327;
+}
+.goal16{
+  background-color: #00689D;
+}
+.goal17{
+  background-color: #19486A;
+}
+
 #goalcontent{
   background-image: url("img/dotgrid-01.png");
   background-size: contain;
@@ -214,7 +199,6 @@ justify-content: center;
 .fact{
   width: 20vw;
   height: 20vw;
-  background-color: #e5243b;
   display: FLEX;
   flex-direction: row;
   justify-content: center;
@@ -224,14 +208,19 @@ justify-content: center;
   font-size:1.2rem;
   margin: 1vw;
 }
-.text{
+.body{
+  grid-column: 1/2;
+  width: 45vw;
+}
+/*.text{
 align-self: flex-start;
-}
+}*/
 .number span{
-  font-size: 6rem;
+  font-size: 5rem;
   display: block;
+  line-height: .5em;
 }
-.number{
+.number, .text{
   text-align: center;
   font-size:1.5rem;
   align-self: center;
@@ -253,8 +242,11 @@ align-self: flex-start;
   margin: 0 0 2vw 0;
   grid-column: 1/3;
 }
-#content p, #content h2{
+#content p, #content h2, #content ul, #content h3, #content .togglecontainer, #content iframe{
   grid-column: 1/2;
+}
+iframe{
+  width: 45vw;
 }
 
 .target{
@@ -266,13 +258,13 @@ align-self: flex-start;
   display: block;
   padding: .75rem 0;
   margin: 0 1.5rem;
-  border-bottom: 1px solid #cccccc;
-  transition-duration: .05s;
-  transition-delay: .25s;
 }
-.toggle:checked + .target{
-  border-bottom: 1px  solid white;
-  transition-duration: .05s;
+.togglecontainer{
+  border-bottom: 1px solid #cccccc;
+}
+#finaltoggle{
+  border-bottom: none;
+  padding-bottom: 5vw;
 }
 .target:before{
   content: "⊕ ";
@@ -318,10 +310,6 @@ left: -200px;
   font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: bold;
-}
-#proxyindicators{
-  grid-column: 2/3;
-  grid-row: span 2;
 }
 #proxyindicators a{
   display: block;
